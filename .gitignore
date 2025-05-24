@@ -172,4 +172,5 @@ _upload/
 mosquitto.bat
 .codegpt
 config/default.yaml
+config.yaml
 .code-workspace
