@@ -43,7 +43,7 @@ class TestAgent(unittest.TestCase):
 
 
         def on_message(self, topic:str, pcl:Parcel):
-            file_info:dict = pcl.content
+            file_info:dict = pcl.content or {}
             logger.debug(self.M(f"topic: {topic}, file_info: {file_info}"))
 
             TestAgent.file_id = file_info.get('file_id')
