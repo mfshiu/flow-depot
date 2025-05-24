@@ -172,3 +172,4 @@ _upload/
 mosquitto.bat
 .codegpt
 config/default.yaml
+echo FlowDepot.code-workspace >> .gitignore
