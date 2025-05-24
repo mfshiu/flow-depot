@@ -1,0 +1,41 @@
+system:
+  version: 1
+
+logging:
+  name: agentflow
+  path: _log/flowdepot.log
+  level: DEBUG  # VERBOSE, DEBUG, INFO, WARNING, ERROR, CRITICAL
+
+broker:
+  broker_name: mqtt_local
+
+  mqtt_local:
+    broker_type: mqtt
+    host: localhost
+    port: 1884
+    username: xxx
+    password: xxx
+    keepalive: 60
+
+  mqtt_xxx:
+    broker_type: mqtt
+    host: xxx.xxx.co
+    port: 1883
+    username: xxx
+    password: xxx
+    keepalive: 60
+
+
+service:
+  file:
+    home_directory: _upload
+
+  llm:
+    openai_api_key: sk-xxx
+
+  kg:
+    hostname: localhost
+    datapath: D:\path\to\_docker
+    # 可改用不同路徑：
+    # datapath: D:\Work\NCU\計畫\國環院廢棄物\wastepro\_neo4j_volumes
+    # datapath: D:\Work\NCU\計畫\國環院廢棄物\wastepro\_docker\neo4j_KGs
