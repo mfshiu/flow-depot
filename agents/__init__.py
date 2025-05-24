@@ -1,0 +1,73 @@
+from datetime import datetime
+import logging
+import signal
+import time
+import yaml
+
+
+LOGGER_NAME = "agentflow"
+
+
+def get_logger():
+    """
+    Get a logger with the specified name.
+    """
+    logger = logging.getLogger(LOGGER_NAME)
+    if not logger.hasHandlers():
+        # 設定 Formatter
+        fmt = '%(levelname)1.1s %(asctime)s.%(msecs)03d %(module)15s:%(lineno)03d %(funcName)15s) %(message)s'
+        datefmt = '%m-%d %H:%M:%S'
+        handler = logging.StreamHandler()
+        formatter = logging.Formatter(fmt, datefmt=datefmt)
+        
+        # 設定 Handler
+        handler.setFormatter(formatter)
+        logger.addHandler(handler)
+        logger.setLevel(logging.DEBUG)
+
+    return logger
+
+
+def load_config_from_yaml(file_path):
+    with open(file_path, 'r', encoding='utf-8') as f:
+        return yaml.safe_load(f)
+
+config = load_config_from_yaml(r'config\default.yaml')
+
+
+def get_agent_config():
+    global config
+
+    broker_name = config['broker']['broker_name']
+
+    agent_config = {
+        'version': config['system']['version'],
+        'broker': {
+            **config['broker'].get(broker_name, {})
+        }
+    }
+
+    return agent_config
+
+
+def wait_agent(agent):
+    def signal_handler(signal, frame):
+        agent.terminate()
+    signal.signal(signal.SIGINT, signal_handler)
+
+    time.sleep(1)
+    dot_counter = 0
+    minute_tracker = datetime.now().minute
+
+    while agent.is_active():
+        time.sleep(1)
+
+        dot_counter += 1
+        if dot_counter % 6 == 0:
+            print('.', end='', flush=True)
+
+        current_minute = datetime.now().minute
+        if current_minute != minute_tracker:
+            print(f"{datetime.now().strftime('%H:%M')}", end='', flush=True)
+            minute_tracker = current_minute
+    print()

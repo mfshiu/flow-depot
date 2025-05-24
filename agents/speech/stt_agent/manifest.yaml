@@ -1,0 +1,24 @@
+name: STTAgent
+version: 1.0.0
+entry_point: agent.py
+class_name: STTAgent
+config_file: config.yaml
+description: |
+  This agent is responsible for converting speech to text using the OpenAI Whisper model.
+  It listens to audio input, processes it, and returns the transcribed text.
+dependencies:
+  - openai-whisper
+  - pydub
+  - sounddevice
+  - numpy
+  - torch
+  - torchaudio
+  - transformers
+  - pyttsx3
+  - requests
+  - websockets
+  - asyncio
+  - jsonschema
+  - websockets-asyncio
+  - aiohttp
+  - pyaudio
