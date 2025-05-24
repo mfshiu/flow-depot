@@ -1,5 +1,6 @@
 from datetime import datetime
 import logging
+import os
 import signal
 import time
 import yaml
@@ -32,7 +33,8 @@ def load_config_from_yaml(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         return yaml.safe_load(f)
 
-config = load_config_from_yaml(r'config\default.yaml')
+config_path = os.path.join(os.path.dirname(__file__), 'config', 'default.yaml')
+config = load_config_from_yaml(config_path)
 
 
 def get_agent_config():
