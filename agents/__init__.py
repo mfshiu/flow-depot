@@ -6,27 +6,7 @@ import time
 import yaml
 
 
-LOGGER_NAME = "agentflow"
-
-
-def get_logger():
-    """
-    Get a logger with the specified name.
-    """
-    logger = logging.getLogger(LOGGER_NAME)
-    if not logger.hasHandlers():
-        # 設定 Formatter
-        fmt = '%(levelname)1.1s %(asctime)s.%(msecs)03d %(module)15s:%(lineno)03d %(funcName)15s) %(message)s'
-        datefmt = '%m-%d %H:%M:%S'
-        handler = logging.StreamHandler()
-        formatter = logging.Formatter(fmt, datefmt=datefmt)
-        
-        # 設定 Handler
-        handler.setFormatter(formatter)
-        logger.addHandler(handler)
-        logger.setLevel(logging.DEBUG)
-
-    return logger
+LOGGER_NAME = os.environ.get('LOGGER_NAME', 'flowdepot')
 
 
 def load_config_from_yaml(file_path):

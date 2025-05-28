@@ -9,8 +9,8 @@ import unittest
 import yaml
 
 import logging
-from agents import get_logger
-logger:logging.Logger = get_logger()
+from app_logger import init_logging
+logger:logging.Logger = init_logging()
 
 from agentflow.core.agent import Agent
 from agentflow.core.parcel import BinaryParcel, Parcel

@@ -7,8 +7,9 @@ from agents import wait_agent
 sys.path.append(str(Path(__file__).resolve().parent))
 from agent_loader import load_agent
 
-from app_logger import get_logger
-logger = get_logger()
+import logging
+from app_logger import init_logging
+logger:logging.Logger = init_logging()
 
 
 def run_agent(agent_dir: str, input_file: str = None):

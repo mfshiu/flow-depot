@@ -13,25 +13,17 @@ def verbose(self, message, *args, **kwargs):
         self._log(LOGGING_LEVEL_VERBOSE, message, args, **kwargs, stacklevel=2)
 logging.Logger.verbose = verbose
 
-logger = None
-CONFIG_PATH = os.path.join(os.getcwd(), 'config', 'default.yaml')
 
-
-def get_logger():
-    global logger
-    
-    if not logger:
-        logger = _init_logging(CONFIG_PATH)
-        
-    return logger
-
-
-def _init_logging(config_path):
+def init_logging(config_path=None):
+    config_path = config_path or os.path.join(os.getcwd(), 'config', 'default.yaml')
     with open(config_path, 'r', encoding='utf-8') as f:
         log_config = (yaml.safe_load(f) or {}).get('logging', {})
 
-    log_name = log_config.get('name', 'agentflow')
-    log_level = log_config.get('level', logging.DEBUG)    
+    log_name = log_config.get('name', 'flowdepot')
+    log_level = log_config.get('level', logging.DEBUG)
+        
+    os.environ['LOGGER_NAME'] = log_name
+    os.environ['LOGGER_LEVEL'] = str(log_level)
     
     logger = logging.getLogger(log_name)
     if not logger.hasHandlers():
@@ -69,7 +61,8 @@ class ColorFormatter(logging.Formatter):
 
 
 if __name__ == "__main__":
-    logger = get_logger()
+    logger = init_logging()
+    # logger = logging.getLogger('flowdepot')
     logger.debug("This is a debug message.")
     logger.verbose("This is a verbose message.")
     logger.info("This is an info message.")

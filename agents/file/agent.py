@@ -10,8 +10,8 @@ import uuid
 from agentflow.core.parcel import BinaryParcel
 
 import logging
-from agents import get_logger
-logger:logging.Logger = get_logger()
+from agents import LOGGER_NAME
+logger:logging.Logger = logging.getLogger(LOGGER_NAME)
 
 
 
