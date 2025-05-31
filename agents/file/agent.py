@@ -10,15 +10,11 @@ import uuid
 from agentflow.core.parcel import BinaryParcel
 
 import logging
-from agents import LOGGER_NAME
-logger:logging.Logger = logging.getLogger(LOGGER_NAME)
-if not logger.hasHandlers():
-    from app_logger import init_logging
-    logger:logging.Logger = init_logging()
+from app_logger import init_logging
+logger:logging.Logger = init_logging()
 
 logger.info(f"[FileService] Logger initialized: {logger.name}, Level: {logger.level}")
 print(f"[FileService] Logger: {logger.name}, Level: {logger.level}")
-
 
 
 

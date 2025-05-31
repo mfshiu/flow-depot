@@ -7,8 +7,8 @@ from agents.llm.llms import create_instance as create_llm
 from agents.llm.llms.base_llm import LlmInstance
 
 import logging
-from agents import LOGGER_NAME
-logger:logging.Logger = logging.getLogger(LOGGER_NAME)
+from app_logger import init_logging
+logger:logging.Logger = init_logging()
 
 
 
