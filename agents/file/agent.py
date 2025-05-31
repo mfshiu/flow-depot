@@ -38,6 +38,7 @@ class FileService(Agent):
         file_info: dict = pcl.content or {}
         content = file_info.get('content')
         logger.info(f"topic: {topic}, filename: {file_info.get('filename')}, content size: {len(content or b'')}")
+        print(f"topic: {topic}, filename: {file_info.get('filename')}, content size: {len(content or b'')}")
 
         filename = file_info.get('filename')
         if not isinstance(filename, str) or not filename:
