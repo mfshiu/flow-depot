@@ -16,7 +16,7 @@ from agentflow.core.agent import Agent
 from agentflow.core.parcel import BinaryParcel, Parcel
 from agents.file.agent import FileService
 
-config_path = os.path.join(os.getcwd(), 'config', 'default.yaml')
+config_path = os.path.join(os.getcwd(), 'config', 'system.yaml')
 with open(config_path, 'r', encoding='utf-8') as f:
     agent_config = yaml.safe_load(f) or {}
 

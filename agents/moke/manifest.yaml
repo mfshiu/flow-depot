@@ -2,7 +2,7 @@ name: moke
 version: 1.0.0
 entry_point: agent.py
 class_name: MokeAgent
-config_file: config.yaml
+config_file: agent.yaml
 description: |
   It is a mock or test implementation of an agent, likely used for simulation, testing, 
   or development purposes in a multi-agent system.

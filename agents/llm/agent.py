@@ -3,8 +3,8 @@ import time
 
 from agentflow.core.agent import Agent
 from agentflow.core.parcel import TextParcel
-from llms import create_instance as create_llm
-from llms.base_llm import LlmInstance
+from agents.llm.llms import create_instance as create_llm
+from agents.llm.llms.base_llm import LlmInstance
 
 import logging
 from agents import LOGGER_NAME
@@ -16,10 +16,10 @@ class LlmService(Agent):
     TOPIC_LLM_PROMPT = "Prompt/LlmService"
     
     
-    def __init__(self, name, agent_config, llm_params):
+    def __init__(self, name, agent_config):
         logger.info(f"name: {name}, agent_config: {agent_config}")
         super().__init__(name, agent_config)
-        self.llm_params = llm_params
+        self.llm_params = agent_config['agent']
 
 
     def on_activate(self):

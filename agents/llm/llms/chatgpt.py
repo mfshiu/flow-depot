@@ -4,7 +4,7 @@ import yaml
 
 import logging, os
 
-from base_llm import LlmInstance
+from agents.llm.llms.base_llm import LlmInstance
 logger:logging.Logger = logging.getLogger(os.getenv('LOGGER_NAME'))
 
 
@@ -123,7 +123,7 @@ if __name__ == '__main__':
         }
     }
     
-    config_path = os.path.join(os.getcwd(), 'config', 'default.yaml')
+    config_path = os.path.join(os.getcwd(), 'config', 'system.yaml')
     with open(config_path, 'r', encoding='utf-8') as f:
         params = (yaml.safe_load(f) or {}).get('llm', {})
 

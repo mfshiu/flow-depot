@@ -13,7 +13,7 @@ def load_config_from_yaml(file_path):
     with open(file_path, 'r', encoding='utf-8') as f:
         return yaml.safe_load(f)
 
-config_path = os.path.join(os.getcwd(), 'config', 'default.yaml')
+config_path = os.path.join(os.getcwd(), 'config', 'system.yaml')
 config = load_config_from_yaml(config_path)
 
 

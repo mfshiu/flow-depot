@@ -171,6 +171,14 @@ _upload/
 
 mosquitto.bat
 .codegpt
-config/default.yaml
+
+# Local configuration files
+#  These files are often used to store local settings, secrets, or environment-specific configurations.
 config.yaml
+default.yaml
+system.yaml
+agent.yaml
+
+# Local development files
+#  These files are often used to store local development settings, secrets, or environment-specific configurations.
 .code-workspace

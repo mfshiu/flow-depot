@@ -1,7 +1,6 @@
-name: llm_service
 version: 1.0.0
 entry_point: agent.py
-class_name: FileService
-config_file: config.yaml
+class_name: LlmService
+config_file: agent.yaml
 description: |
   .

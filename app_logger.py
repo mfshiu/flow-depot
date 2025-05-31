@@ -15,7 +15,7 @@ logging.Logger.verbose = verbose
 
 
 def init_logging(config_path=None):
-    config_path = config_path or os.path.join(os.getcwd(), 'config', 'default.yaml')
+    config_path = config_path or os.path.join(os.getcwd(), 'config', 'system.yaml')
     with open(config_path, 'r', encoding='utf-8') as f:
         log_config = (yaml.safe_load(f) or {}).get('logging', {})
 
