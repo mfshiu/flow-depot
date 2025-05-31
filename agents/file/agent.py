@@ -12,6 +12,9 @@ from agentflow.core.parcel import BinaryParcel
 import logging
 from agents import LOGGER_NAME
 logger:logging.Logger = logging.getLogger(LOGGER_NAME)
+logger.info(f"[FileService] Logger initialized: {logger.name}, Level: {logger.level}")
+print(f"[FileService] Logger: {logger.name}, Level: {logger.level}")
+
 
 
 
@@ -46,6 +49,7 @@ class FileService(Agent):
         file_id = self._generate_file_id(filename)
         mime_type, encoding = mimetypes.guess_type(url=filename)
         logger.debug(f"file_id: {file_id}, filename: {filename}, mime_type: {mime_type}, encoding: {encoding}")
+        
         
         file_dir = os.path.join(self.home_directory, file_id[:2], file_id[2:4])
         # file_dir = os.path.join(self.home_directory, file_id[:2])
