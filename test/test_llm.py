@@ -13,7 +13,7 @@ logger:logging.Logger = init_logging()
 
 from agentflow.core.agent import Agent
 from agentflow.core.parcel import TextParcel, Parcel
-from agents.llm.agent import LlmService
+from agents.topics import AgentTopics
 
 
 config_path = os.path.join(os.getcwd(), 'config', 'system.yaml')
@@ -35,7 +35,7 @@ class TestAgent(unittest.TestCase):
             
             messages = "Please create a question about the water cycle."
             pcl = TextParcel(messages, 'llm_response')
-            self.publish(LlmService.TOPIC_LLM_PROMPT , pcl)
+            self.publish(AgentTopics.LLM_PROMPT , pcl)
 
 
         def on_message(self, topic:str, pcl:Parcel):

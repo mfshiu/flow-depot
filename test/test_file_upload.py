@@ -14,7 +14,8 @@ logger:logging.Logger = init_logging()
 
 from agentflow.core.agent import Agent
 from agentflow.core.parcel import BinaryParcel, Parcel
-from agents.file.agent import FileService
+from agents.topics import AgentTopics
+
 
 config_path = os.path.join(os.getcwd(), 'config', 'system.yaml')
 with open(config_path, 'r', encoding='utf-8') as f:
@@ -40,7 +41,7 @@ class TestAgent(unittest.TestCase):
             pcl = BinaryParcel({
                 'content': content,
                 'filename': filename}, 'file_uploaded')
-            self.publish(FileService.TOPIC_FILE_UPLOAD , pcl)
+            self.publish(AgentTopics.FILE_UPLOAD , pcl)
 
 
         def on_message(self, topic:str, pcl:Parcel):

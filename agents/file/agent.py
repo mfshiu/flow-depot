@@ -1,5 +1,3 @@
-from agentflow.core.agent import Agent
-
 import hashlib
 import mimetypes
 import os
@@ -7,7 +5,9 @@ import random
 import time
 import uuid
 
+from agentflow.core.agent import Agent
 from agentflow.core.parcel import BinaryParcel
+from agents.topics import AgentTopics
 
 import logging
 from app_logger import init_logging
@@ -19,9 +19,6 @@ print(f"[FileService] Logger: {logger.name}, Level: {logger.level}")
 
 
 class FileService(Agent):
-    TOPIC_FILE_UPLOAD = "FileUpload/FileService"
-    
-    
     def __init__(self, name, agent_config):
         logger.info(f"name: {name}, agent_config: {agent_config}")
         super().__init__(name, agent_config)
@@ -76,5 +73,5 @@ class FileService(Agent):
 
 
     def on_activate(self):
-        logger.info(f"subscribe: {FileService.TOPIC_FILE_UPLOAD}")
-        self.subscribe(FileService.TOPIC_FILE_UPLOAD, "str", self.handle_file_upload)
+        logger.info(f"subscribe: {AgentTopics.FILE_UPLOAD}")
+        self.subscribe(AgentTopics.FILE_UPLOAD, "str", self.handle_file_upload)
