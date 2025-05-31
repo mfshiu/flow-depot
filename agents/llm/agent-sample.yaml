@@ -1,0 +1,7 @@
+name: llm_service
+llm: ChatGPT
+model: gpt-4o-mini
+openai_api_key: xxx # Replace with your actual OpenAI API key
+description: |
+  This is a sample configuration for an LLM agent using the ChatGPT model.
+  It includes basic settings such as the model type and API key.
