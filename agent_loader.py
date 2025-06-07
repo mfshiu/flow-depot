@@ -54,8 +54,8 @@ def load_agent(agent_dir: str, agent_config_path: str = '', system_config_path: 
         if _path.exists():
             with open(_path, 'r', encoding='utf-8') as f:
                 agent_cfg = yaml.safe_load(f) or {}
-            agent_config['agent'] = agent_cfg
-            # agent_config = deep_merge(agent_config, agent_cfg)
+            # agent_config['agent'] = agent_cfg
+            agent_config = deep_merge(agent_config, agent_cfg)
 
     # Load agent instance dynamically.
     agent_instance = None
@@ -69,7 +69,7 @@ def load_agent(agent_dir: str, agent_config_path: str = '', system_config_path: 
         if module and spec.loader is not None:
             spec.loader.exec_module(module)
             agent_class = getattr(module, class_name)
-            agent_instance = agent_class(agent_config['agent']['name'], agent_config)
+            agent_instance = agent_class(agent_config['name'], agent_config)
     
     return agent_instance
         

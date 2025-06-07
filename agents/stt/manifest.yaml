@@ -1,0 +1,6 @@
+version: 1.0.0
+entry_point: agent.py
+class_name: SttService
+config_file: agent.yaml
+description: |
+  .

@@ -22,7 +22,7 @@ class FileService(Agent):
     def __init__(self, name, agent_config):
         logger.info(f"name: {name}, agent_config: {agent_config}")
         super().__init__(name, agent_config)
-        self.home_directory = agent_config['agent']['home_directory']
+        self.home_directory = agent_config['home_directory']
 
 
     def _generate_file_id(self, filename):        

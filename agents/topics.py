@@ -1,5 +1,6 @@
 from enum import Enum
 
 class AgentTopics(str, Enum):
-    LLM_PROMPT = "Prompt/LlmService"
     FILE_UPLOAD = "File/Upload"
+    LLM_PROMPT = "Prompt/LlmService"
+    STT_CONTENT = "STT/Content"

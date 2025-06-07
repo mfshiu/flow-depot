@@ -1,8 +1,9 @@
 [ ] 建立 資料查詢網
 [ ] 建立 DDS broker
-[ ] 建立 SttAgent
-[ ] 建立 LlmAgent
-[X] 建立 FileAgent
-[X] Logger 吃設定
-[X] 改善 Logger 換日卡檔問題
-[X] AgentFlow 讀取 yaml config 有問題: python start.py -a "agents\moke" 報錯。
+[ ] 建立 STT 網站
+[*] 建立 SttAgent：
+[x] 建立 LlmAgent
+[x] 建立 FileAgent
+[x] Logger 吃設定
+[x] 改善 Logger 換日卡檔問題
+[x] AgentFlow 讀取 yaml config 有問題: python start.py -a "agents\moke" 報錯。
