@@ -14,7 +14,7 @@ class LlmService(Agent):
     def __init__(self, name, agent_config):
         logger.info(f"name: {name}, agent_config: {agent_config}")
         super().__init__(name, agent_config)
-        self.llm_params = agent_config['agent']
+        self.llm_params = agent_config
 
 
     def on_activate(self):
