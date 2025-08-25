@@ -17,17 +17,14 @@ import logging
 from flowdepot.app_logger import init_logging
 logger:logging.Logger = init_logging()
 
-openai_client = OpenAI()
-print("使用的 OpenAI API Key:", openai_client.api_key)
-
 
 
 class CaptchaService(Agent):
     def __init__(self, name, agent_config):
         logger.info(f"name: {name}, agent_config: {agent_config}")
         super().__init__(name, agent_config)
-        openai_client.api_key = agent_config.get("openai_api_key", "")
-        logger.info(f"OpenAI API Key: {openai_client.api_key}")
+        self.openai_client = OpenAI(api_key=agent_config.get("openai_api_key", ""))
+        logger.info(f"OpenAI API Key: {self.openai_client.api_key}")
         
         # Create "temp" folder in current execution path if it doesn't exist for audio files.
         self.temp_root = Path.cwd() / "temp"
@@ -80,7 +77,7 @@ class CaptchaService(Agent):
         def ocr_id(image_path: str) -> str:
             """用 gpt-4o-mini 進行 OCR，回傳純文字"""
             data_url = to_data_url(image_path)
-            resp = openai_client.chat.completions.create(
+            resp = self.openai_client.chat.completions.create(
                 model="gpt-4o-mini",
                 messages=[{
                     "role": "user",
