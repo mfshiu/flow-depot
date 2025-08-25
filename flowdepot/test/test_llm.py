@@ -8,7 +8,7 @@ import unittest
 import yaml
 
 import logging
-from app_logger import init_logging
+from flowdepot.app_logger import init_logging
 logger:logging.Logger = init_logging()
 
 from agentflow.core.agent import Agent

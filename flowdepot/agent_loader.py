@@ -4,7 +4,6 @@ from pathlib import Path
 from copy import deepcopy
 
 
-
 def deep_merge(dict1, dict2):
     """Recursively merge dict2 into dict1."""
     result = deepcopy(dict1)

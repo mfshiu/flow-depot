@@ -1,7 +1,12 @@
-[ ] 建立 資料查詢網
 [ ] 建立 DDS broker
-[ ] 建立 STT 網站
-[*] 建立 SttAgent：
+[ ] 建立 Socket broker
+[ ] 建立 YouTube 解譯網
+[ ] 建立 資料查詢網
+[x] 部署 STT 網站：全部重新改部署在 Sleepad (已部在 MIAT-NV5 但失敗)
+[x] 將 flowdepot 上傳至 pypi 以正確安裝, 目前進度請參考 ChatGPT：setup.py 設定協助-20250609
+[x] 建立 STT 網站：開發 Deptron 中, 使用 async 實作 queryer, publish_sync 已可使用 await. 
+    ChatGPT 討論主題：Python 框架推薦-202506071917
+[x] 建立 SttAgent：
 [x] 建立 LlmAgent
 [x] 建立 FileAgent
 [x] Logger 吃設定

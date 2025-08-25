@@ -5,7 +5,7 @@ from agents.llm.llms.base_llm import LlmInstance
 from agents.topics import AgentTopics
 
 import logging
-from app_logger import init_logging
+from flowdepot.app_logger import init_logging
 logger:logging.Logger = init_logging()
 
 

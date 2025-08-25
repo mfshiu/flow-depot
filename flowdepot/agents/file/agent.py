@@ -10,7 +10,7 @@ from agentflow.core.parcel import BinaryParcel
 from agents.topics import AgentTopics
 
 import logging
-from app_logger import init_logging
+from flowdepot.app_logger import init_logging
 logger:logging.Logger = init_logging()
 
 logger.info(f"[FileService] Logger initialized: {logger.name}, Level: {logger.level}")

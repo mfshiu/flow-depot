@@ -7,12 +7,15 @@ import yaml
 LOGGING_LEVEL_VERBOSE = int(logging.DEBUG / 2)
 logging.addLevelName(LOGGING_LEVEL_VERBOSE, "VERBOSE")
 
+
 def verbose(self, message, *args, **kwargs):
     if self.isEnabledFor(LOGGING_LEVEL_VERBOSE):
         self._log(LOGGING_LEVEL_VERBOSE, message, args, **kwargs, stacklevel=2)
+        
+        
 logging.Logger.verbose = verbose
-
 _LOGGER_CACHE = {}
+
 
 def init_logging(config_path=None, force_level=None):
     log_name = os.environ.get('LOGGER_NAME')

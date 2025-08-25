@@ -8,12 +8,11 @@ import torch
 import whisper
 
 from agentflow.core.agent import Agent
-# from agentflow.core.parcel import TextParcel
 from agentflow.core.parcel import BinaryParcel
 from agents.topics import AgentTopics
 
 import logging
-from app_logger import init_logging
+from flowdepot.app_logger import init_logging
 logger:logging.Logger = init_logging()
 
 
@@ -60,8 +59,6 @@ class SttService(Agent):
             response['error'] = str(ex)
             
         return response
-                        
-        
 
 
     def _transcribe_content(self, _, content, audio_type):
@@ -90,12 +87,12 @@ def main():
     stt_agent.on_activate()
 
     # 載入測試音檔
-    audio_path = Path("agents/stt/sample_apeech.mp3")
+    audio_path = Path(r"flowdepot\agents\stt\sample_apeech.mp3")
     with audio_path.open("rb") as f:
         content = f.read()
 
     # 模擬接收到的 TextParcel
-    parcel = BinaryParcel(content=content)
+    parcel = BinaryParcel(content={'content': content})
 
     # 呼叫轉錄函式
     topic = "Test/STT"
