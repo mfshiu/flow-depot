@@ -1,4 +1,4 @@
-import sys
+import os, sys
 from pathlib import Path
 import argparse
 
@@ -33,8 +33,9 @@ if __name__ == "__main__":
     # parser.add_argument("--input", "-i", help="Input file for agent (e.g. audio file for STT)")
     args = parser.parse_args()
 
-    logger.debug(f"Agent directory: {args.agent_dir}")
+    agent_dir = os.path.join('flowdepot', args.agent_dir)
+    logger.debug(f"Agent directory: {agent_dir}")
     # logger.debug(f"Input file: {args.input}")
-    if agent := run_agent(args.agent_dir):
+    if agent := run_agent(agent_dir):
     # if agent := run_agent(args.agent_dir, args.input):
         wait_agent(agent)
