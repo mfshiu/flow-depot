@@ -9,7 +9,7 @@ import whisper
 
 from agentflow.core.agent import Agent
 from agentflow.core.parcel import BinaryParcel
-from agents.topics import AgentTopics
+from flowdepot.agents.topics import AgentTopics
 
 import logging
 from flowdepot.app_logger import init_logging
