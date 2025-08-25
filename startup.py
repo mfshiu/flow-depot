@@ -5,7 +5,7 @@ import argparse
 from flowdepot.agents import wait_agent
 
 sys.path.append(str(Path(__file__).resolve().parent))
-from agent_loader import load_agent
+from flowdepot.agent_loader import load_agent
 
 import logging
 from flowdepot.app_logger import init_logging
