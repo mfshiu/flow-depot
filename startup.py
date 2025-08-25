@@ -2,7 +2,7 @@ import os, sys
 from pathlib import Path
 import argparse
 
-from agents import wait_agent
+from flowdepot.agents import wait_agent
 
 sys.path.append(str(Path(__file__).resolve().parent))
 from agent_loader import load_agent
