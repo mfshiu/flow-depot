@@ -3,6 +3,10 @@ import importlib.util
 from pathlib import Path
 from copy import deepcopy
 
+import logging
+from flowdepot.app_logger import init_logging
+logger:logging.Logger = init_logging()
+
 
 def deep_merge(dict1, dict2):
     """Recursively merge dict2 into dict1."""
@@ -55,6 +59,7 @@ def load_agent(agent_dir: str, agent_config_path: str = '', system_config_path: 
                 agent_cfg = yaml.safe_load(f) or {}
             # agent_config['agent'] = agent_cfg
             agent_config = deep_merge(agent_config, agent_cfg)
+    logger.debug(f"Final merged agent_config: {agent_config}")
 
     # Load agent instance dynamically.
     agent_instance = None
